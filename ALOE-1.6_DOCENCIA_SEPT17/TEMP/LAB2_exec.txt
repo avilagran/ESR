@@ -1,0 +1,371 @@
+CMDMAN: Waveform Loaded ok.
+O============================================================================================O
+runph$: init LAB2_CTRL_TOT
+APP_Name:LAB2_CTRL_TOT, Module:demod16QAM, Params_Folder:paramscfg
+WARNING!!!: hwapi_res_parseall_():FILE paramscfg/demod16QAM.params ......NOT READ!!!
+APP_Name:LAB2_CTRL_TOT, Module:DEMAPPINGII, Params_Folder:paramscfg
+WARNING!!!: hwapi_res_parseall_():FILE paramscfg/DEMAPPINGII.params ......NOT READ!!!
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_GRAPH_CORREL, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_GRAPH_CORREL
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_GRAPH_FFT, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_GRAPH_FFT
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_FFT, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_FFT
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_GRAPH_PSS_SYNCH, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_GRAPH_PSS_SYNCH
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_PSS_SYNCH, Params_Folder:paramscfg
+WARNING!!!: hwapi_res_parseall_():FILE paramscfg/LAB2_PSS_SYNCH.params ......NOT READ!!!
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_GRAPH_DDC, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_GRAPH_DDC
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_DDC, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_DDC
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_GRAPH_DUC, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_GRAPH_DUC
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_DUC, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_DUC
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_GRAPH_IFFT, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_GRAPH_IFFT
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_IFFT, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_IFFT
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_GRAPH_MAPPINGII, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_GRAPH_MAPPINGII
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_CTRL_MAPPINGII, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_CTRL_MAPPINGII
+APP_Name:LAB2_CTRL_TOT, Module:mod16QAM, Params_Folder:paramscfg
+WARNING!!!: hwapi_res_parseall_():FILE paramscfg/mod16QAM.params ......NOT READ!!!
+APP_Name:LAB2_CTRL_TOT, Module:LAB2_SOURCE_SINK, Params_Folder:paramscfg
+STMAN:	Initialize parameter: Initialized parameters for object LAB2_SOURCE_SINK
+WARNING!!! initiating parameters from demod16QAM.params file 
+skeletonSK15(): bufferIN[1]=4167118864l
+skeletonSK15(): bufferOUT[0]=21782544l
+Error initiating parameters file
+SWAPI: WARNING block_length not initialized in statman/APP_folder/DEMAPPINGII.params file.
+Caution parameter block_length not initiated for DEMAPPINGII
+SWAPI: WARNING run_times not initialized in statman/APP_folder/DEMAPPINGII.params file.
+Caution parameter run_times not initiated for DEMAPPINGII
+SWAPI: WARNING plot_modeIN not initialized in statman/APP_folder/DEMAPPINGII.params file.
+Caution parameter plot_modeIN not initiated for DEMAPPINGII
+SWAPI: WARNING plot_modeOUT not initialized in statman/APP_folder/DEMAPPINGII.params file.
+Caution parameter plot_modeOUT not initiated for DEMAPPINGII
+SWAPI: WARNING samplingfreqHz not initialized in statman/APP_folder/DEMAPPINGII.params file.
+Caution parameter samplingfreqHz not initiated for DEMAPPINGII
+SWAPI: WARNING FFTsize not initialized in statman/APP_folder/DEMAPPINGII.params file.
+Caution parameter FFTsize not initiated for DEMAPPINGII
+Error initiating parameters file
+SWAPI: WARNING subframe_length not initialized in statman/APP_folder/LAB2_PSS_SYNCH.params file.
+Caution parameter subframe_length not initiated for LAB2_PSS_SYNCH
+SWAPI: WARNING samplingfreqHz not initialized in statman/APP_folder/LAB2_PSS_SYNCH.params file.
+Caution parameter samplingfreqHz not initiated for LAB2_PSS_SYNCH
+WARNING!!! initiating parameters from mod16QAM.params file 
+skeletonSK15(): bufferIN[1]=27336720l
+skeletonSK15(): bufferOUT[0]=1735262224l
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: demod16QAM.Initialize()
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=CHAR
+O--------------------------------------------------------------------------------------------O
+Caution parameter block_length not initiated for LAB2_DDC
+Caution parameter block_length not initiated for LAB2_DUC
+Caution parameter block_length not initiated for LAB2_CTRL_MAPPINGII
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+O    SPECIFIC PARAMETERS SETUP: mod16QAM.Initialize()         0
+O    SPECIFIC PARAMETERS SETUP: mod16QAM
+
+O      Nof Inputs=1, DataTypeIN=CHAR, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+Caution parameter run_times not initiated for LAB2_DDC
+Caution parameter run_times not initiated for LAB2_DUC
+Caution parameter run_times not initiated for LAB2_CTRL_MAPPINGII
+Caution parameter plot_modeIN not initiated for LAB2_DDC
+Caution parameter plot_modeIN not initiated for LAB2_DUC
+Caution parameter plot_modeIN not initiated for LAB2_CTRL_MAPPINGII
+Caution parameter fo_carrier not initiated for LAB2_GRAPH_CORREL
+Caution parameter fo_carrier not initiated for LAB2_GRAPH_FFT
+Caution parameter fo_carrier not initiated for LAB2_GRAPH_PSS_SYNCH
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_PSS_SYNCH
+O      subframe_length=1792, sampligfreqHz=1.000
+O--------------------------------------------------------------------------------------------O
+buffCtrl->writeIndex=0: 
+buffCtrl->occuplevel=0: 
+buffCtrl->readIndex=0: 
+bufferCtrl->buffsize=65536: 
+*bufferC=6996800: 
+Caution parameter fo_carrier not initiated for LAB2_GRAPH_DDC
+Caution parameter plot_modeOUT not initiated for LAB2_DDC
+Caution parameter fo_carrier not initiated for LAB2_GRAPH_DUC
+Caution parameter plot_modeOUT not initiated for LAB2_DUC
+Caution parameter fo_carrier not initiated for LAB2_GRAPH_IFFT
+Caution parameter fo_carrier not initiated for LAB2_GRAPH_MAPPINGII
+Caution parameter plot_modeOUT not initiated for LAB2_CTRL_MAPPINGII
+Caution parameter mode not initiated for LAB2_SOURCE_SINK
+Caution parameter DNI not initiated for LAB2_SOURCE_SINK
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooP
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: DEMAPPINGII
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      block_length=111, run_times=1, sampligfreqHz=1.000
+O      plot_modeIN=DEFAULT, plot_modeOUT=DEFAULT
+O      FFTsize=128
+O--------------------------------------------------------------------------------------------O
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooP
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_FFT
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      sampligfreqHz=48000.000
+O      fftsize=128, numffts=14, op_mode=1 (1:FFT, 2:IFFT)
+O--------------------------------------------------------------------------------------------O
+Caution parameter filterlength not initiated for LAB2_DDC
+Caution parameter filterlength not initiated for LAB2_DUC
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooP
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_IFFT
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      sampligfreqHz=48000.000
+O      fftsize=128, numffts=14, op_mode=2 (1:FFT, 2:IFFT)
+O--------------------------------------------------------------------------------------------O
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooP
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_SOURCE_SINK
+O      Nof Inputs=2, DataTypeIN=CHAR, Nof Outputs=1, DataTypeOUT=CHAR
+O      block_length=36, ctrl_flow=1, snd_flag=0
+O      mode=0 [0: Normal, 1: Control ESR]
+O      debug=0 
+O--------------------------------------------------------------------------------------------O
+data/rfc793.txt
+Reading filename data/rfc793.txt: read data=172123, expected=50000000
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooP
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: MAPPINGII
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=2, DataTypeOUT=COMPLEXFLOAT
+O      block_length=72, run_times=1, sampligfreqHz=1.000
+O      plot_modeIN=DEFAULT, plot_modeOUT=DEFAULT
+O      mode=0 [0: LAB2, 1:LAB3]
+O      debugMODE=0 
+O      debugMODE=0: Normal execution
+O      debugMODE=1: Load 14 OFDM symbols real Data. Command sent to ask for required data
+O      debugMODE=2: Load 14 OFDM symbols Data from a pattern. Command sent to ask for no data
+O      phylayerID=0, FFTsize=128
+O--------------------------------------------------------------------------------------------O
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooP
+filterlength=405, number of coeefs read=405
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_DDC
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      block_length=111, run_times=1, sampligfreqHz=48000.000
+O      plot_modeIN=DEFAULT, plot_modeOUT=DEFAULT
+O      fo_freqHz=3500.0, gain=1.0, Ninterpol=8
+O     filtercoefffile=paramscfg/LOW_PASS_1750Hz_60dBs2200HzR0_1REAL.coeff, filterlength=405
+O--------------------------------------------------------------------------------------------O
+INITIALIZEoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooP
+filterlength=405, number of coeefs read=405
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_DUC
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      block_length=111, run_times=1, sampligfreqHz=48000.000
+O      plot_modeIN=DEFAULT, plot_modeOUT=DEFAULT
+O      fo_freqHz=3500.0, gain=1.0, Ninterpol=8
+O     filtercoefffile=paramscfg/LOW_PASS_1750Hz_60dBs2200HzR0_1REAL.coeff, filterlength=405
+O--------------------------------------------------------------------------------------------O
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_GRAPH_CORREL
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O     PLOT TIME or SAMPLES:
+O       numsampl2view=14000, plot_periodTS=1, samplingfreqHz=1.0
+O       Time Slots to capture=4500
+O--------------------------------------------------------------------------------------------O
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_GRAPH_FFT
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      BYPASS: delayBypass=0, DataTypeIN=COMPLEXFLOAT ===> DataTypeOUT=COMPLEXFLOAT
+O     PLOT TIME or SAMPLES:
+O       numsampl2view=8960, plot_periodTS=1, samplingfreqHz=1.0
+O       Time Slots to capture=4000
+O--------------------------------------------------------------------------------------------O
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_GRAPH_PSS_SYNCH
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      BYPASS: delayBypass=0, DataTypeIN=COMPLEXFLOAT ===> DataTypeOUT=COMPLEXFLOAT
+O     PLOT TIME or SAMPLES:
+O       numsampl2view=8960, plot_periodTS=1, samplingfreqHz=1.0
+O       Time Slots to capture=4000
+O--------------------------------------------------------------------------------------------O
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_GRAPH_DDC
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      BYPASS: delayBypass=0, DataTypeIN=COMPLEXFLOAT ===> DataTypeOUT=COMPLEXFLOAT
+O     PLOT SPECTRUM:
+O       fftsize=2048, fo_carrier=0.0,  Logaritmic scale,  Averaged spectrum with mu=0.0
+O       Time Slots to capture=4000
+O--------------------------------------------------------------------------------------------O
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_GRAPH_DUC
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      BYPASS: delayBypass=0, DataTypeIN=COMPLEXFLOAT ===> DataTypeOUT=COMPLEXFLOAT
+O     PLOT SPECTRUM:
+O       fftsize=1792, fo_carrier=0.0,  Logaritmic scale,  Averaged spectrum with mu=0.1
+O       Time Slots to capture=4000
+O--------------------------------------------------------------------------------------------O
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_GRAPH_IFFT
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      BYPASS: delayBypass=0, DataTypeIN=COMPLEXFLOAT ===> DataTypeOUT=COMPLEXFLOAT
+O     PLOT TIME or SAMPLES:
+O       numsampl2view=8960, plot_periodTS=1, samplingfreqHz=1.0
+O       Time Slots to capture=4000
+O--------------------------------------------------------------------------------------------O
+O--------------------------------------------------------------------------------------------O
+O    SPECIFIC PARAMETERS SETUP: LAB2_GRAPH_MAPPINGII
+O      Nof Inputs=1, DataTypeIN=COMPLEXFLOAT, Nof Outputs=1, DataTypeOUT=COMPLEXFLOAT
+O      BYPASS: delayBypass=0, DataTypeIN=COMPLEXFLOAT ===> DataTypeOUT=COMPLEXFLOAT
+O     PLOT TIME or SAMPLES:
+O       numsampl2view=17920, plot_periodTS=1, samplingfreqHz=1.0
+O       Time Slots to capture=3000
+O--------------------------------------------------------------------------------------------O
+CMDMAN: Waveform Init ok.
+runph$: run LAB2_CTRL_TOT
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=0
+CMDMAN: Waveform Running ok.
+
+runph$: PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=0, pMAX1=-1
+         line 0: warning: Skipping unreadable file "/tmp/gnuplot-i-T5giwn"
+         line 0: No data in plot
+
+Warning: empty y range [0:0], adjusting to [-1:1]
+         line 0: warning: Skipping unreadable file "/tmp/gnuplot-i-QiC5om"
+         line 0: No data in plot
+
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=0
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=504
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+         line 0: warning: Skipping unreadable file "/tmp/gnuplot-i-l6tbzf"
+         line 0: No data in plot
+
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Warning: empty y range [-180:-180], adjusting to [-181.8:-178.2]
+Warning: empty y range [0:0], adjusting to [-1:1]
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=936
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=-1
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+PSS_SYNCH(): --------------------------->MAX1=176.9,MAX2=181.2, pMAX1=818, pMAX2=946, pdiff=128
+PSS_SYNCHRO: flagINITRX=0, rcv_samples=1792, pMAX1=946
+pMAX1=946
+buffCtrl.roomlevel=65536: 
+buffCtrl.occuplevel=0: 
+---------------------------
+buffCtrl.roomlevel=64690: 
+buffCtrl.occuplevel=846: 
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+
+!!!!!!!!!!!!!!!!!! TSLOT=0: CURRENT BER = 0.000000, numbitserror=0
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+!!!!!!!!!!!!!!!!!! TSLOT=10: CURRENT BER = 0.000000, numbitserror=0
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+!!!!!!!!!!!!!!!!!! TSLOT=20: CURRENT BER = 0.000000, numbitserror=0
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+!!!!!!!!!!!!!!!!!! TSLOT=30: CURRENT BER = 0.000000, numbitserror=0
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+!!!!!!!!!!!!!!!!!! TSLOT=40: CURRENT BER = 0.000000, numbitserror=0
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=0 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=1 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=2 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=3 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=4 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+!!!!!!!!!!!!!!!!!! TSLOT=50: CURRENT BER = 0.000000, numbitserror=0
+Tslot=5 || MAPPINGII: snd_samples=1792, rcv_samples=936
+Tslot=6 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=7 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=8 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+Tslot=9 || MAPPINGII: snd_samples=1792, rcv_samples=1008
+

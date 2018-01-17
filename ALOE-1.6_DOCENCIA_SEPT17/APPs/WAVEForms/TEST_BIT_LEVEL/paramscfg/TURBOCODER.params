@@ -1,0 +1,17 @@
+#mode [0: CODER, 1: DECODER]
+parameter {
+	name = mode
+	value = 0
+}
+
+parameter {
+	name = rate
+	value = 3
+}
+
+#debug 0: NO DEBUGG, 1: DEBUGG
+parameter {
+	name = debug
+	value = 0
+}
+

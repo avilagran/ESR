@@ -1,0 +1,56 @@
+#------------------------------------------------------------------
+# bypass; 0: No Bypass data, 1: Bypass data
+parameter {
+	name = bypass
+	value = 0
+}
+
+# inputtype: "COMPLEXFLOAT", "FLOAT", "INT", "CHAR"
+parameter {
+	name = inputtype
+	value = COMPLEXFLOAT
+}
+# outputtype: "COMPLEXFLOAT", "FLOAT", "INT", "CHAR"
+parameter {
+	name = outputtype
+	value = COMPLEXFLOAT
+}
+#------------------------------------------------------------------
+# fo_freqHz: Carrier frequency
+parameter {
+	name = f0_freqHz
+	value = 5000.0
+}
+# gain: Gain in sin cos generation
+parameter {
+	name = gain
+	value = 1.0
+}
+
+# Ninterpol: Interpolation Number. Add N-1 zeros
+parameter {
+	name = Ninterpol
+	value = 56
+}
+# LOGSCALE: dB Scale for FFT plotting: 0=Linear Scale; 1=dB Scale
+parameter {
+	name = logscale
+	value = 6
+}
+
+# samplingfreqHz: A value in Hz. Use 1.0 when refers to samples
+parameter {
+	name = samplingfreqHz
+	value = 48000.0
+}
+#
+parameter {
+	name = filtercoefffile
+	value = paramscfg/FILTRO.coeff
+}
+
+parameter {
+	name = filterlength
+	value = 481
+}
+

@@ -1,0 +1,24 @@
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[001]:	DAC_TX: Received no data (0,0)
+
+[002]:	DAC_TX: Received no data (0,0)
+
+[003]:	DAC_TX: Received no data (0,0)
+
+[004]:	DAC_TX: Received no data (0,0)
+
+[005]:	DAC_TX: Received no data (0,0)
+
+[006]:	DAC_TX: Received no data (0,0)
+
+[007]:	DAC_TX: Received no data (0,0)
+
+[008]:	DAC: Setting freq to 2.00 MHz. Sending 960 samples to DAC.

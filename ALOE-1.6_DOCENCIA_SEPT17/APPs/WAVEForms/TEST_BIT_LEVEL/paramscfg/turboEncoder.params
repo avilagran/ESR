@@ -1,0 +1,16 @@
+
+parameter {
+	name = longblock
+	value = 593
+}
+
+parameter {
+	name = numblocks
+	value = 1
+}
+
+parameter {
+	name = padding
+	value = 1
+}
+

@@ -1,0 +1,30 @@
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=0
+
+[000]:	Caution parameter input_length not initated
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	Caution parameter blockSize not initated
+
+[001]:	interleaver -> InputLength is zero (TS 0)
+[002]:	interleaver -> InputLength is zero (TS 1)
+[003]:	interleaver -> InputLength is zero (TS 2)

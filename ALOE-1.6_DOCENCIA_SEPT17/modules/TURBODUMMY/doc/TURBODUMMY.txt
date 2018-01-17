@@ -1,0 +1,12 @@
+This module tries to emulate the encoding/decoding process of a Turbodecoder.
+It performs a codification by means of a repetition code.
+
+
+Parameters:
+
+1) rate: indicate the number of repetition of bits
+2) mode: 0: Coding, 1: Decoding
+
+Input data: Bytes. Internally converted to bits. 
+
+Output data:; Bytes

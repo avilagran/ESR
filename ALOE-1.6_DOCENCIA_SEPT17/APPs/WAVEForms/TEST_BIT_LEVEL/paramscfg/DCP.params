@@ -1,0 +1,15 @@
+
+parameter {
+	name = block_length
+	value = 111
+}
+
+parameter {
+	name = run_times
+	value = 1
+}
+
+parameter {
+	name = plot_modeIN
+	value = DEFAULT
+}

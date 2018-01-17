@@ -1,0 +1,31 @@
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	Caution parameter numOFDMSymbols not initated
+
+[001]:	cyclic -> Some interfaces InputLength are zero (TS 1, input0 0, input1 0)
+[002]:	cyclic -> Some interfaces InputLength are zero (TS 2, input0 0, input1 0)
+[003]:	cyclic -> Some interfaces InputLength are zero (TS 3, input0 0, input1 0)
+[004]:	cyclic -> Some interfaces InputLength are zero (TS 4, input0 0, input1 0)
+[005]:	cyclic -> Some interfaces InputLength are zero (TS 5, input0 0, input1 0)
+[006]:	cyclic -> Some interfaces InputLength are zero (TS 6, input0 0, input1 0)

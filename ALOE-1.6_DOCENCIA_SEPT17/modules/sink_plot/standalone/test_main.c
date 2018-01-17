@@ -1,0 +1,483 @@
+/* 
+ * Copyright (c) 2012, Ismael Gomez-Miguelez <ismael.gomez@tsc.upc.edu>.
+ * This file is part of ALOE++ (http://flexnets.upc.edu/)
+ * 
+ * ALOE++ is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ALOE++ is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with ALOE++.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Testsuite for testing DFT and IDFT */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#include "phal_sw_api.h"
+#include "skeleton.h"
+#include "params.h"
+#define INTERFACE_CONFIG
+#include "sink_plot_interfaces.h"
+#undef INTERFACE_CONFIG
+#include "sink_plot_params.h"
+#include "sink_plot.h"
+#include "test_generate.h"
+#include "gnuplot_i.h"
+
+#define STRLENGTH	32
+
+FILE *dat_input=NULL, *dat_output=NULL;
+char *dat_input_name=NULL, *dat_output_name=NULL;
+
+extern const int input_sample_sz;
+extern const int output_sample_sz;
+extern const int nof_input_itf;
+extern const int nof_output_itf;
+extern const int input_max_samples;
+extern const int output_max_samples;
+
+static input_t *input_data;
+static output_t *output_data;
+static void **input_ptr, **output_ptr;
+
+static int *input_lengths;
+static int *output_lengths;
+
+//static double *plot_buff;
+
+int use_gnuplot=0;		/*0: no plot; 1:plot*/
+int use_binary_input=0;		/*0: text input; 1: binary input*/
+int use_binary_output=0;	/*0: text input; 1: binary input*/
+int show_help=0;
+
+typedef struct {
+	char *name;
+	char *value;
+} saparam_t;
+
+saparam_t *parametersA;
+int nof_params;
+
+int parse_paramters(int argc, char**argv);
+int param_setup(char *name, char *value, int nofdefparams);
+
+inline int get_input_samples(int idx) {
+	return input_lengths[idx];
+}
+
+inline void set_output_samples(int idx, int len) {
+	output_lengths[idx] = len;
+}
+
+inline int get_input_max_samples() {
+	return input_max_samples;
+}
+inline int get_output_max_samples() {
+	return output_max_samples;
+}
+
+void allocate_memory() {
+	posix_memalign((void**)&input_data,64,input_max_samples*nof_input_itf*input_sample_sz);
+	posix_memalign((void**)&output_data,64,output_max_samples*nof_output_itf*output_sample_sz);
+	assert(input_data);
+	assert(output_data);
+	input_lengths = calloc(sizeof(int),nof_input_itf);
+	assert(input_lengths);
+	output_lengths = calloc(sizeof(int),nof_output_itf);
+	assert(output_lengths);
+	input_ptr = calloc(sizeof(void*),nof_input_itf);
+	assert(input_ptr);
+	output_ptr = calloc(sizeof(void*),nof_output_itf);
+	assert(output_ptr);
+/*	input_data = malloc(sizeof(input_t)*input_max_samples*nof_input_itf);
+	assert(input_data);
+	output_data = malloc(sizeof(output_t)*output_max_samples*nof_output_itf);
+	assert(output_data);
+	input_lengths = malloc(sizeof(int)*nof_input_itf);
+	assert(input_lengths);
+	output_lengths = malloc(sizeof(int)*nof_output_itf);
+	assert(output_lengths);
+*/
+}
+
+void free_memory() {
+	free(input_data);
+	free(output_data);
+	free(input_lengths);
+	free(output_lengths);
+	if (parametersA) {
+		for (int i=0;i<nof_params;i++) {
+			if (parametersA[i].name) free(parametersA[i].name);
+			if (parametersA[i].value) free(parametersA[i].value);
+		}
+		free(parametersA);
+	}
+}
+
+int get_time(struct timespec *x) {
+
+	if (clock_gettime(CLOCK_MONOTONIC,x)) {
+		return -1;
+	}
+	return 0;
+}
+
+void get_time_interval(struct timespec * tdata) {
+
+	tdata[0].tv_sec = tdata[2].tv_sec - tdata[1].tv_sec;
+	tdata[0].tv_nsec = tdata[2].tv_nsec - tdata[1].tv_nsec;
+	if (tdata[0].tv_nsec < 0) {
+		tdata[0].tv_sec--;
+		tdata[0].tv_nsec += 1000000000;
+	}
+}
+
+/**
+ * Testsuite:
+ * Generates random symbols and calls the module ....
+ * @param ...
+ * @param ...
+ * @param ... */
+int main(int argc, char **argv)
+{
+	struct timespec tdata[3];
+//	gnuplot_ctrl *in, *out;
+	gnuplot_ctrl *plot;
+	char tmp[64];
+	int ret, i, j; //, n;
+	float *tmp_f;
+	char *aux_c;
+	_Complex float *tmp_c;
+	double *plot_buff_r;
+	double *plot_buff_c;
+//	int file_read_sz=0;
+//	int out_length0;
+//	int read_length0=0;
+//	char *datatype="BIN";
+//	char *inputmode="FILE";
+//	char myname0[STRLENGTH]="run_times";
+//	char myname1[STRLENGTH]="block_length";	
+	
+
+	parametersA = NULL;
+
+	allocate_memory();
+	printf("nof_parameters=%d\n", nof_parameters);
+	param_init(parameters,nof_parameters);
+	parse_paramters(argc, argv);
+
+	if(show_help==0)printf("Put -h for standalone execution options!!!\n");
+	if(show_help==1){
+		printf("o STANDALONE EXECUTION ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+		printf("o Two alternatives: a)Autogenerated input data, b)Load input file.                   o\n");
+		printf("o Options: -p:  plot input/output                                                    o\n");
+		printf("o          -it: input text file according module input data type format.             o\n");
+		printf("o          -ib: input binari file according module input data type format.           o\n");
+		printf("o          -ot: output text file according module output data type format.           o\n");
+		printf("o          -ob: output binari data file according module output data type format.    o\n");
+		printf("o          block_length=XX: Number of samples sent to input each time slot           o\n");
+		printf("o          run_times=XX: Number of time slot executed                                o\n");
+		printf("o Autogenerated input data example:                                                  o\n");
+		printf("o     ./module_name -p block_length=10 run_times=2                                   o\n");
+		printf("o Load input data example:                                                           o\n");
+		printf("o     ./module_name -p -ib ../../../LTEcaptures/aloe.dat block_length=10 run_times=1 o\n");
+		printf("oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+		return(0);
+	}
+	printf("Capture command line parameteroooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	//Capture command line parameters
+	for(i=0; i<nof_params; i++){
+		printf("names=%s\n", parametersA[i].name);
+		param_setup(parametersA[i].name, parametersA[i].value, nof_parameters);
+	}
+	printf("Initialize module oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	if (initialize()) {
+		printf("Error initializing\n");
+		exit(1); /* the reason for exiting should be printed out beforehand */
+	}
+	printf("Generate Input Signalsoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	//Generate Input Signals
+	if (generate_input_signal(input_data, input_lengths)) {
+		printf("Error generating input signal\n");
+		exit(1);
+	}
+	printf("Check Input Buffers oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	for (i=0;i<nof_input_itf;i++) {
+		if (!input_lengths[i]) {
+			printf("Warning, input interface %d has zero length\n",i);
+		}
+	}
+	printf("Clock Init ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	clock_gettime(CLOCK_MONOTONIC,&tdata[1]);
+	printf("Execute Module Work oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	ret = work(input_data, output_data);
+	printf("Capture time wasted oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	clock_gettime(CLOCK_MONOTONIC,&tdata[2]);
+	stop();
+	if (ret == -1) {
+		printf("Error running\n");
+		exit(-1);
+	}
+	get_time_interval(tdata);
+	printf("\nExecution time: %d ns.\n", (int) tdata[0].tv_nsec);
+	printf("FINISHED\n");
+	printf("Check Output Buffers oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	printf("Nof nof_output_itf=%d\n", nof_output_itf);
+	for (i=0;i<nof_output_itf;i++) {
+		if (!output_lengths[i]) {
+			output_lengths[i] = ret;
+		}
+		if (!output_lengths[i]) {
+			printf("Warning output interface %d has zero length\n",i);
+		}
+	}
+	printf("Input/Output Plot oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	printf("Only Valid for one output and one input oooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+	if (use_gnuplot) {
+		for (i=0;i<nof_input_itf;i++) {
+			if(input_lengths[i]==0)printf("WARNING!!! test_main(): input_lengths[%d]=%d\n", i, input_lengths[i]);
+			plot_buff_r = malloc(sizeof(double)*input_lengths[i]);
+			plot_buff_c = malloc(sizeof(double)*input_lengths[i]);
+//			printf("input_length[%d]=%d\n", i, input_lengths[i]);
+			if (input_sample_sz == sizeof(char)) {
+				
+				aux_c = (char*) &input_data[i*input_max_samples*input_sample_sz];
+				for (j=0;j<input_lengths[i];j++) {
+					plot_buff_r[j] = (double) (aux_c[j]);// & (char)0xFF);
+					//printf();
+				}
+				plot = gnuplot_init() ;
+				gnuplot_setstyle(plot,"lines");
+				snprintf(tmp,64,"input_%d",i);
+		        	gnuplot_plot_x(plot, plot_buff_r, get_input_samples(i), tmp);
+		        	free(plot_buff_r);
+
+			}else if (input_sample_sz == sizeof(float)) {
+				tmp_f = (float*) &input_data[i*input_max_samples*input_sample_sz];
+				for (j=0;j<input_lengths[i];j++) {
+					plot_buff_r[j] = (double) tmp_f[j];
+				}
+				plot = gnuplot_init() ;
+				gnuplot_setstyle(plot,"lines");
+				snprintf(tmp,64,"input_%d",i);
+		        	gnuplot_plot_x(plot, plot_buff_r, get_input_samples(i), tmp);
+		        	free(plot_buff_r);
+			}else if (input_sample_sz == sizeof(_Complex float)) {
+				tmp_c = (_Complex float*) &input_data[i*input_max_samples*input_sample_sz];
+				for (j=0;j<input_lengths[i];j++) {
+					plot_buff_r[j] = (double) __real__ tmp_c[j];
+					plot_buff_c[j] = (double) __imag__ tmp_c[j];
+				}
+				//REAL
+				plot = gnuplot_init() ;
+				gnuplot_setstyle(plot,"lines");
+				snprintf(tmp,64,"input_real_%d",i);
+		       	 	gnuplot_plot_x(plot, plot_buff_r, get_input_samples(i), tmp);
+				//IMAG
+		       		plot = gnuplot_init() ;
+				gnuplot_setstyle(plot,"lines");
+				snprintf(tmp,64,"input_imag_%d",i);
+		        	gnuplot_plot_x(plot, plot_buff_c, get_input_samples(i), tmp);
+			
+		        	free(plot_buff_r);
+		        	free(plot_buff_c);
+			}
+		}
+		if(nof_output_itf==0)printf("WARNING!!! test_main(): Number of Output Interfaces=%d\n", nof_output_itf);
+		for (i=0;i<nof_output_itf;i++) {
+			if(output_lengths[i]==0)printf("WARNING!!! test_main(): output_lengths[%d]=%d\n", i, output_lengths[i]);
+			printf("nof_outputs=%d\n", nof_output_itf);
+			plot_buff_r = malloc(sizeof(double)*output_lengths[i]);
+			plot_buff_c = malloc(sizeof(double)*output_lengths[i]);
+			if (output_sample_sz == sizeof(float)) {
+				tmp_f = (float*) &output_data[i*output_max_samples*output_sample_sz];
+				for (j=0;j<output_lengths[i];j++) {
+					plot_buff_r[j] = (double) __real__ tmp_f[j];
+				}
+				plot = gnuplot_init() ;
+				gnuplot_setstyle(plot,"lines");
+				snprintf(tmp,64,"output_%d",i);
+				gnuplot_plot_x(plot, plot_buff_r,
+						output_lengths[i], tmp);
+				free(plot_buff_r);
+			} else if (output_sample_sz == sizeof(_Complex float)) {
+				tmp_c = (_Complex float*) &output_data[i*output_max_samples*output_sample_sz];
+				for (j=0;j<output_lengths[i];j++) {
+					plot_buff_r[j] = (double) __real__ tmp_c[j];
+					plot_buff_c[j] = (double) __imag__ tmp_c[j];
+				}
+				plot = gnuplot_init() ;
+				gnuplot_setstyle(plot,"lines");
+				snprintf(tmp,64,"output_real_%d",i);
+				gnuplot_plot_x(plot, plot_buff_r,
+						output_lengths[i], tmp);
+				plot = gnuplot_init() ;
+				gnuplot_setstyle(plot,"lines");
+				snprintf(tmp,64,"output_imag_%d",i);
+				gnuplot_plot_x(plot, plot_buff_c,
+						output_lengths[i], tmp);
+				free(plot_buff_r);
+				free(plot_buff_c);
+	        	}
+		}
+
+		printf("Type ctrl+c to exit\n");fflush(stdout);
+		free_memory();
+		pause();
+		/* make sure we exit here */
+		exit(1);
+	}
+
+	free_memory();
+
+	return 0;
+
+}
+
+
+
+/* Define test environment functions here */
+int parse_paramters(int argc, char**argv)
+{
+	int i;
+	char *key,*value;
+	int k = 0;
+
+	use_gnuplot = 0;
+	use_binary_input = 0;
+
+	nof_params = argc-1;
+
+//printf("nof_params=%d\n", nof_params);
+	for (i=1;i<argc;i++) {
+		if (!strcmp(argv[i],"-p")) {		//Plot input/output option
+			use_gnuplot = 1;
+			nof_params--;
+//			printf("-p\n");
+		} else if (!strcmp(argv[i],"-it")) {	//Input text file
+			dat_input_name = argv[i+1];
+			i++;
+			nof_params-=2;
+			use_binary_input=0;
+//			printf("-it\n");
+		} else if (!strcmp(argv[i],"-ib")) {	//Input binari file
+			dat_input_name = argv[i+1];
+			use_binary_input = 1;
+			i++;
+			nof_params-=2;
+//			printf("-ib\n");
+		}else if (!strcmp(argv[i],"-ot")) {	//Output text file
+			dat_output_name = argv[i+1];
+			i++;
+			nof_params-=2;
+			use_binary_output=0;
+//			printf("-ot\n");
+		}else if (!strcmp(argv[i],"-ob")) {	//Output binari file
+			dat_output_name = argv[i+1];
+			i++;
+			nof_params-=2;
+			use_binary_output=1;
+//			printf("-ob\n");
+		}else if (!strcmp(argv[i],"-h")) {	//Output binari file
+			nof_params--;
+			show_help=1;
+//			printf("-help\n");
+		}
+	
+	}
+	if (!nof_params) {
+		return 0;
+	}
+
+	parametersA = calloc(sizeof(saparam_t),nof_params);
+
+	for (i=1;i<argc;i++) {
+		if (strcmp(argv[i],"-p")) {
+			key = argv[i];
+			value = index(argv[i],'=');
+			if (value) {
+				*value = '\0';
+				value++;
+				parametersA[k].name = strdup(key);
+				parametersA[k].value = strdup(value);
+				printf("name=%s\n", parametersA[k].name);
+				printf("value=%s\n", parametersA[k].value);
+				printf("value=%d\n", atoi(parametersA[k].value));
+				printf("value=%3.3f\n", atof(parametersA[k].value));
+				k++;
+			}
+		}
+	}
+	return 0;
+}
+
+/*INITIALIZE params with captured values*/
+int param_setup(char *name, char *value, int nofcaptparams){
+//	int idx=-1, ret, 
+//	int len;
+	int type;
+	void *param=NULL;
+//	char *chars;
+
+printf("param_setupoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooK\n");
+//	printf("Rname=%s\n", name);
+//	printf("Rvalue=%s\n", value);
+
+	//Check if captured params were defined in modulename_params.h
+
+	param=param_get_addr(name);
+	if(param==NULL){
+		printf("ERROR: Param %s not defined in modulename_params.h\n", name);
+		return(0);
+	}
+	else{
+		printf("Param %s initialized by command line\n", name);
+	}
+//	printf("param_adr=%d\n", param);
+	type=param_get_aloe_type(name);
+//	printf("type=%d\n", type);
+	switch(type) {
+		case STAT_TYPE_INT:
+//			printf("INT\n");
+			*((int*)param)=atoi(value);
+//			printf("*param=%d\n", *((int*)param));
+			return 1;
+		case STAT_TYPE_FLOAT:
+//			printf("FLOAT\n");
+			*((float*)param)=atof(value);
+//			printf("*param=%3.3f\n", *((float*)param));
+			return 1;
+		case STAT_TYPE_COMPLEX:
+//			printf("COMPLEX\n");
+			printf("Warning complex parameters not yet supported\n");
+			return 1;
+		case STAT_TYPE_STRING:
+//			printf("STRING\n");
+//			printf("*param=%d\n", param);	
+//			len=strlen(value);
+//			printf("len=%d\n", len);
+			strcpy((char *)param, value);
+//			printf("*param=%s\n", param);			
+			return 1;
+		default:
+			printf("DEFAULT\n");
+			printf("%s.params_setup(): Error. Default ", "sink_plot");
+			return -1;
+	}
+	return(1);
+}
+
+
+

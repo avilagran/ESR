@@ -1,0 +1,5 @@
+
+Module: data_source_sink
+Functionality: 	Read a file and send it as char's flow. 
+				Receive data and compare with the original file.
+				Calculate BER

@@ -1,0 +1,32 @@
+!SESSION 2016-12-15 10:53:40.127 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.7.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 4 4 2016-12-15 10:55:26.046
+!MESSAGE Plug-in 'org.eclipse.cdt.ui' contributed an invalid Menu Extension (Path: 'project/org.eclipse.cdt.ui.prjmenu' is invalid): org.eclipse.cdt.ui.manageConfigsAction2
+
+!ENTRY org.eclipse.ui 4 4 2016-12-15 10:55:26.218
+!MESSAGE Plug-in 'org.eclipse.cdt.ui' contributed an invalid Menu Extension (Path: 'project/org.eclipse.cdt.ui.prjmenu' is invalid): org.eclipse.cdt.ui.buildConfigMenuAction
+
+!ENTRY org.eclipse.ui 4 4 2016-12-15 10:55:26.233
+!MESSAGE Plug-in 'org.eclipse.cdt.ui' contributed an invalid Menu Extension (Path: 'project/org.eclipse.cdt.ui.prjmenu' is invalid): org.eclipse.cdt.ui.wsselection
+
+!ENTRY org.eclipse.ui 4 4 2016-12-15 10:56:03.842
+!MESSAGE Plug-in 'org.eclipse.cdt.ui' contributed an invalid Menu Extension (Path: 'project/org.eclipse.cdt.ui.prjmenu' is invalid): org.eclipse.cdt.ui.manageConfigsAction2
+
+!ENTRY org.eclipse.ui 4 4 2016-12-15 10:56:03.843
+!MESSAGE Plug-in 'org.eclipse.cdt.ui' contributed an invalid Menu Extension (Path: 'project/org.eclipse.cdt.ui.prjmenu' is invalid): org.eclipse.cdt.ui.buildConfigMenuAction
+
+!ENTRY org.eclipse.ui 4 4 2016-12-15 10:56:03.843
+!MESSAGE Plug-in 'org.eclipse.cdt.ui' contributed an invalid Menu Extension (Path: 'project/org.eclipse.cdt.ui.prjmenu' is invalid): org.eclipse.cdt.ui.wsselection
+
+!ENTRY org.eclipse.core.resources 4 77 2016-12-15 11:14:06.836
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2016-12-15 11:14:06.836
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2016-12-15 11:14:06.837
+!MESSAGE /home/antoni/DADES/NOU_DADES/DOCENCIA/ASSIGNATURES/ESR/ALOE_DOCENCIA/ALOE-1.6_DOCENCIA_WORKING_NOV16 overlaps the workspace location: /home/antoni/DADES/NOU_DADES/DOCENCIA/ASSIGNATURES/ESR/ALOE_DOCENCIA/ALOE-1.6_DOCENCIA_WORKING_NOV16/ECLIPSE_ENV

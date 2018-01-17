@@ -1,0 +1,22 @@
+#mode [0: CODER, 1: DECODER]
+#  cellID 0,1,2
+parameter {
+	name = phylayerID
+	value = 1
+}
+
+
+
+# LAB2=0 , LAB3=1
+parameter {
+	name = mode
+	value = 1
+}
+
+
+#0: Normal Execution, 1: AA, 2: BB
+parameter {
+	name = debugMODE
+	value = 1
+}
+

@@ -1,0 +1,42 @@
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=0
+
+[000]:	Caution parameter input_length not initated
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	INNIT n=1
+
+[000]:	Caution parameter longblock not initated
+
+[000]:	Caution parameter block1size not initated
+
+[000]:	Caution parameter block2size not initated
+
+[000]:	Caution parameter errorsblk not initated
+
+[000]:	Caution parameter nof_err not initated
+
+[000]:	Caution parameter totalerrors not initated
+
+[000]:	Caution parameter fer not initated
+
+[000]:	Caution parameter totalerrors not initated
+
+[001]:	crc -> InputLength is zero (TS 0)

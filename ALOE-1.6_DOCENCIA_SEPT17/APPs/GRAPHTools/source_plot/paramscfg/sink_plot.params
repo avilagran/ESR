@@ -1,0 +1,6 @@
+#### CAUTION. Use dac_cfg.h datatypes here. 
+parameter {
+	name = block_length
+	value = 1000
+}
+
